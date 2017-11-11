@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3>Search Results</h3>
+{% for name in lastname %}
+    <a href="/member?id={{ name.Row_Number }}">
+    {{name.Full_Name}}
+  </a>
+    <br>
+{% endfor %}
+
+{% endblock %}

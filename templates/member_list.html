@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>All Members</h3>
+<form action="/search" method='POST'>
+  <div>
+    <input type="text" name="query" placeholder="Search for first name....">
+    <input type="submit" value="Search">
+  </div>
+</form>
+{% for user in userlist %}
+    <h3>
+        <a href="/member?id={{ user.Row_Number }}">
+        {{ user.Full_Name }} {{user.Last_Name}}
+        </a>
+    </h3>
+
+
+{% endfor %}
+
+{% endblock %}

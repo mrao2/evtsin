@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3> Member Info: </h3>
+<table style="width:100%">
+  <tr>
+    <th>Full Name: </th>
+    <td>{{info.Full_Name}}</td>
+  </tr>
+  <tr>
+    <th>Last Name: </th>
+    <td>{{info.Last_Name}}</td>
+  </tr>
+  <tr>
+    <th>Email: </th>
+    <td>{{info.EMail_Primary}}</td>
+  </tr>
+  <tr>
+    <th>Membership_Status: </th>
+    <td>{{info.Membership_Status}}</td>
+  </tr>
+</table>
+
+<form action="/member?user={{info.Row_Number}}"  method='POST'>
+<textarea name="comment" rows="10" cols="30"></textarea>
+<input type="submit" value="Comment">
+
+</form>
+
+
+{% endblock %}
