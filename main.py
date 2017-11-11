@@ -47,12 +47,15 @@ class member_info(db.Model):
 
 
 
-     def __init__(self, EMail_Primary, Full_Name, Last_Name, Phone_Primary, Membership_Status):
+     def __init__(self, EMail_Primary, Full_Name, Last_Name, Phone_Primary, Membership_Status, Comment, Membership_Type, Newer_Member):
          self.EMail_Primary = EMail_Primary
          self.Full_Name = Full_Name
          self.Last_Name = Last_Name
          self.Phone_Primary = Phone_Primary
          self.Membership_Status = Membership_Status
+         self.Comment = Comment
+         self.Membership_Type = Membership_Type
+         self.Newer_Member = Newer_Member
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
@@ -83,8 +86,10 @@ def new_member():
         lname = request.form['lastname']
         phone = request.form['phnumber']
         memstat = request.form['memstat']
+        comment = request.form['comment']
+        memtype = request.form['memtype']
 
-        new_person = member_info(EMail_Primary=email,Full_Name=name,Last_Name=lname,Phone_Primary=phone,Membership_Status=memstat)
+        new_person = member_info(EMail_Primary=email,Full_Name=name,Last_Name=lname,Phone_Primary=phone,Membership_Status=memstat, Comment=comment, Membership_Type=memtype)
         db.session.add(new_person)
         db.session.commit()
         return redirect('/member?id=' + str(new_person.Row_Number))
