@@ -57,12 +57,12 @@ class member_info(db.Model):
          self.Membership_Type = Membership_Type
          self.Newer_Member = Newer_Member
 
-@app.route('/', methods=['POST', 'GET'])
+@application.route('/', methods=['POST', 'GET'])
 def index():
     userlist =  member_info.query.all()
     return render_template('member_list.html',userlist=userlist)
 
-@app.route('/member', methods=['GET', 'POST'])
+@application.route('/member', methods=['GET', 'POST'])
 def member():
 
     if request.args.get('id'):
@@ -78,7 +78,7 @@ def member():
 
     return render_template('singlemember.html', info=info)
 
-@app.route('/new_member', methods=['POST', 'GET'])
+@application.route('/new_member', methods=['POST', 'GET'])
 def new_member():
     if request.method == 'POST':
         email = request.form['email']
@@ -96,7 +96,7 @@ def new_member():
 
     return render_template('new_member.html',title="Member Sign Up")
 
-@app.route('/search', methods=['POST', 'GET'])
+@application.route('/search', methods=['POST', 'GET'])
 def search():
     search_entry = request.form['query']
     #info = member_info.member_info()
