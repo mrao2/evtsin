@@ -5,7 +5,7 @@ from datetime import datetime
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://eventsignin:pass@localhost:3306/eventsignin'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://mrao2:815deaver!@evtsin.ct4m4jedveyf.us-east-2.rds.amazonaws.com:3306/eventsignin'
 app.config['SQLALCHEMY_ECHO'] = True
 db = SQLAlchemy(app)
 
