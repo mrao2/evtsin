@@ -1,9 +1,9 @@
 branch-defaults:
   master:
-    environment: evtsin-dev
+    environment: null
     group_suffix: null
 global:
-  application_name: evtsin
+  application_name: evtsin-dev
   branch: null
   default_ec2_keyname: null
   default_platform: Python 3.6
